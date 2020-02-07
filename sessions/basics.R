@@ -1,0 +1,21 @@
+# Copyright 2020 Cloudera, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# ## Basic R Code Example
+
+# A deadline is ten calendar days from today. 
+# Which date is that?
+
+deadline <- Sys.Date() + as.difftime(10, units = "days")
+strftime(deadline, "%A, %B %d, %Y")
