@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# ## Basic Python Code Example
+# # Basic Python Code Example
 
 # A deadline is ten calendar days from today. 
 # Which date is that?
@@ -20,4 +20,5 @@
 from datetime import date, timedelta
 
 deadline = date.today() + timedelta(days=10)
+
 deadline.strftime("%A, %B %d, %Y")

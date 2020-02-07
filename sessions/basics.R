@@ -12,10 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# ## Basic R Code Example
+# # Basic R Code Example
 
 # A deadline is ten calendar days from today. 
 # Which date is that?
 
 deadline <- Sys.Date() + as.difftime(10, units = "days")
+
 strftime(deadline, "%A, %B %d, %Y")
