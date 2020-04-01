@@ -17,7 +17,7 @@
 # A deadline is ten calendar days from today. 
 # Which date is that?
 
-!pip install pendulum
+!pip2 install pendulum
 
 !pip3 install pendulum
 
