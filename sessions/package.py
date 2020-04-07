@@ -25,4 +25,4 @@ import pendulum
 
 deadline = pendulum.today().add(days=10)
 
-deadline.strftime("%A, %B %d, %Y")
+deadline.strftime('%A, %B %d, %Y')

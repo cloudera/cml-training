@@ -21,4 +21,4 @@ from datetime import date, timedelta
 
 deadline = date.today() + timedelta(days=10)
 
-deadline.strftime("%A, %B %d, %Y")
+deadline.strftime('%A, %B %d, %Y')
