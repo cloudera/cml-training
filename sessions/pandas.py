@@ -23,6 +23,7 @@
 # How many flights to SFO departed from each airport, and what 
 # was the average departure delay (in minutes)?
 
+import numpy as np
 import pandas as pd
 
 flights = pd.read_csv('data/flights.csv')
