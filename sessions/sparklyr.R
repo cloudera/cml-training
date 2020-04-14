@@ -38,7 +38,7 @@ spark <- spark_connect(app_name = "cml-training")
 flights <- spark_read_csv(
   sc = spark,
   name = "flights",
-  path = "flights/",
+  path = "data/flights.csv",
   header = TRUE,
   infer_schema = TRUE
 )
