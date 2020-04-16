@@ -23,7 +23,7 @@ library(sparklyr)
 # Then call the `spark_connect()` function to connect to
 # Spark. This example gives a name to the Spark application:
 
-spark <- spark_connect(app_name = "cml-training")
+spark <- spark_connect(app_name = "cml-training-sparklyr")
 
 # Now you can use the connection object named `spark` to
 # read data into Spark.
@@ -150,10 +150,14 @@ flights %>%
     avg_dep_delay = mean(dep_delay, na.rm = TRUE)
   )
 
-# You can chain together multiple dplyr verbs:
+# By chaining together multiple dplyr verbs, you can
+# analyze data to answer questions. For example:
+
+# How many flights to SFO departed from each airport,
+# and what was the average departure delay (in minutes)?
 
 flights %>%
-  filter(dest == "BOS") %>%
+  filter(dest == "SFO") %>%
   group_by(origin) %>%
   summarise(
     num_departures = n(),
@@ -188,6 +192,6 @@ tbl(spark, sql("
     COUNT(*) AS num_departures,
     AVG(dep_delay) AS avg_dep_delay
   FROM flights
-  WHERE dest = 'BOS'
+  WHERE dest = 'SFO'
   GROUP BY origin
   ORDER BY avg_dep_delay"))
