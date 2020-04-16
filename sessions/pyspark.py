@@ -208,3 +208,10 @@ spark.sql("""
   WHERE dest = 'SFO'
   GROUP BY origin
   ORDER BY avg_dep_delay""").toPandas()
+
+
+# ## Cleanup
+
+# Stop the Spark application:
+
+spark.stop()

@@ -199,3 +199,10 @@ tbl(spark, sql("
   WHERE dest = 'SFO'
   GROUP BY origin
   ORDER BY avg_dep_delay"))
+
+
+# ## Cleanup
+
+# Stop the Spark application:
+
+spark_disconnect(spark)
