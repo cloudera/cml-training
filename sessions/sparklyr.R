@@ -20,8 +20,8 @@
 
 library(sparklyr)
 
-# Then call the `spark_connect()` function to connect to
-# Spark. This example gives a name to the Spark application:
+# Then call `spark_connect()` to start a Spark application.
+# This example also gives the Spark application a name:
 
 spark <- spark_connect(app_name = "cml-training-sparklyr")
 
