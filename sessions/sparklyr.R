@@ -14,6 +14,10 @@
 
 # # sparklyr Example
 
+# The code in this file requires the sparklyr package.
+# If this code fails to run in an R session, install
+# sparklyr by running `install.packages("sparklyr")`
+
 # ## Starting a Spark Application
 
 # Begin by loading the sparklyr package:
