@@ -14,7 +14,7 @@
 
 # # sparklyr Example
 
-# ## Connecting to Spark
+# ## Starting a Spark Application
 
 # Begin by loading the sparklyr package:
 

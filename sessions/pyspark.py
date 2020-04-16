@@ -14,7 +14,7 @@
 
 # # PySpark Example
 
-# ## Connecting to Spark
+# ## Starting a Spark Application
 
 # Spark SQL is Spark's module for working with structured
 # data. PySpark is Spark's Python API. The `pyspark.sql`
@@ -26,8 +26,8 @@
 from pyspark.sql import SparkSession
 
 # Then call the `getOrCreate()` method of
-# `SparkSession.builder` to start a Spark session. This
-# example also gives a name to the Spark application:
+# `SparkSession.builder` to start a Spark application.
+# This example also gives the Spark application a name:
 
 spark = SparkSession.builder \
   .appName('cml-training-pyspark') \
