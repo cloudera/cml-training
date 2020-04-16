@@ -30,7 +30,7 @@ from pyspark.sql import SparkSession
 # example also gives a name to the Spark application:
 
 spark = SparkSession.builder \
-  .appName('cml-training') \
+  .appName('cml-training-pyspark') \
   .getOrCreate()
 
 # Now you can use the `SparkSession` named `spark` to read
@@ -100,11 +100,11 @@ flights_pd
 
 # `select()` returns the specified columns:
 
-flights.select('carrier').show()
+flights.select('carrier').toPandas()
 
 # `distinct()` returns distinct rows:
 
-flights.select('carrier').distinct().show()
+flights.select('carrier').distinct().toPandas()
 
 # `filter()` (or its alias `where()`) returns rows that
 # satisfy a Boolean expression.
@@ -114,21 +114,21 @@ flights.select('carrier').distinct().show()
 
 from pyspark.sql.functions import col, lit
 
-flights.filter(col('dest') == lit('SFO')).show()
+flights.filter(col('dest') == lit('SFO')).toPandas()
 
 # `orderBy()` (or its alias `sort()`) returns rows
 # arranged by the specified columns:
 
-flights.orderBy('month', 'day').show()
+flights.orderBy('month', 'day').toPandas()
 
-flights.orderBy('month', 'day', ascending=False).show()
+flights.orderBy('month', 'day', ascending=False).toPandas()
 
 # `withColumn()` adds a new column or replaces an existing
 # column using the specified expression:
 
 flights \
   .withColumn('on_time', col('arr_delay') <= 0) \
-  .show()
+  .toPandas()
 
 # To concatenate strings, import and use the function
 # `concat()`:
@@ -137,7 +137,7 @@ from pyspark.sql.functions import concat
 
 flights \
   .withColumn('flight_code', concat('carrier', 'flight')) \
-  .show()
+  .toPandas()
 
 # `agg()` performs aggregations using the specified
 # expressions.
@@ -147,16 +147,16 @@ flights \
 
 from pyspark.sql.functions import count, countDistinct
 
-flights.agg(count('*')).show()
+flights.agg(count('*')).toPandas()
 
-flights.agg(countDistinct('carrier')).show()
+flights.agg(countDistinct('carrier')).toPandas()
 
 # Use the `alias()` method to assign a name to name the
 # resulting column:
 
 flights \
   .agg(countDistinct('carrier').alias('num_carriers')) \
-  .show()
+  .toPandas()
 
 # `groupBy()` groups data by the specified columns, so
 # aggregations can be computed by group:
@@ -169,19 +169,23 @@ flights \
        count('*').alias('num_departures'), \
        mean('dep_delay').alias('avg_dep_delay') \
   ) \
-  .show()
+  .toPandas()
 
-# You can chain together multiple DataFrame methods:
+# By chaining together multiple DataFrame methods, you
+# can analyze data to answer questions. For example:
+
+# How many flights to SFO departed from each airport,
+# and what was the average departure delay (in minutes)?
 
 flights \
-  .filter(col('dest') == lit('BOS')) \
+  .filter(col('dest') == lit('SFO')) \
   .groupBy('origin') \
   .agg( \
        count('*').alias('num_departures'), \
        mean('dep_delay').alias('avg_dep_delay') \
   ) \
   .orderBy('avg_dep_delay') \
-  .show()
+  .toPandas()
 
 
 # ## Using SQL Queries
@@ -201,6 +205,6 @@ spark.sql("""
     COUNT(*) AS num_departures,
     AVG(dep_delay) AS avg_dep_delay
   FROM flights
-  WHERE dest = 'BOS'
+  WHERE dest = 'SFO'
   GROUP BY origin
-  ORDER BY avg_dep_delay""").show()
+  ORDER BY avg_dep_delay""").toPandas()
