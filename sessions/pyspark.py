@@ -66,7 +66,7 @@ flights.printSchema()
 flights.describe('arr_delay').show()
 flights.describe('arr_delay', 'dep_delay').show()
 
-# Print the first five rows:
+# Print five rows:
 
 flights.limit(5).show()
 
@@ -74,15 +74,13 @@ flights.limit(5).show()
 
 flights.show(5)
 
-# Print the first 20 rows (the default number is 20):
+# Print 20 rows (the default number is 20):
 
 flights.show()
 
-# `show()` can cause rows to wrap onto multiple lines,
-# making the output hard to read. To make the output
-# more readable, use `toPandas()` to return a pandas
-# DataFrame. For example, return the first five rows
-# as a pandas DataFrame and display it:
+# Use `toPandas()` to return a pandas DataFrame. In CML,
+# this displays in a scrollable grid. For example, return
+# five rows as a pandas DataFrame, then display it:
 
 flights_pd = flights.limit(5).toPandas()
 flights_pd
@@ -100,11 +98,11 @@ flights_pd
 
 # `select()` returns the specified columns:
 
-flights.select('carrier').toPandas()
+flights.select('carrier').show()
 
 # `distinct()` returns distinct rows:
 
-flights.select('carrier').distinct().toPandas()
+flights.select('carrier').distinct().show()
 
 # `filter()` (or its alias `where()`) returns rows that
 # satisfy a Boolean expression.
@@ -114,21 +112,21 @@ flights.select('carrier').distinct().toPandas()
 
 from pyspark.sql.functions import col, lit
 
-flights.filter(col('dest') == lit('SFO')).toPandas()
+flights.filter(col('dest') == lit('SFO')).show()
 
 # `orderBy()` (or its alias `sort()`) returns rows
 # arranged by the specified columns:
 
-flights.orderBy('month', 'day').toPandas()
+flights.orderBy('month', 'day').show()
 
-flights.orderBy('month', 'day', ascending=False).toPandas()
+flights.orderBy('month', 'day', ascending=False).show()
 
 # `withColumn()` adds a new column or replaces an existing
 # column using the specified expression:
 
 flights \
   .withColumn('on_time', col('arr_delay') <= 0) \
-  .toPandas()
+  .show()
 
 # To concatenate strings, import and use the function
 # `concat()`:
@@ -137,7 +135,7 @@ from pyspark.sql.functions import concat
 
 flights \
   .withColumn('flight_code', concat('carrier', 'flight')) \
-  .toPandas()
+  .show()
 
 # `agg()` performs aggregations using the specified
 # expressions.
@@ -147,16 +145,16 @@ flights \
 
 from pyspark.sql.functions import count, countDistinct
 
-flights.agg(count('*')).toPandas()
+flights.agg(count('*')).show()
 
-flights.agg(countDistinct('carrier')).toPandas()
+flights.agg(countDistinct('carrier')).show()
 
 # Use the `alias()` method to assign a name to name the
 # resulting column:
 
 flights \
   .agg(countDistinct('carrier').alias('num_carriers')) \
-  .toPandas()
+  .show()
 
 # `groupBy()` groups data by the specified columns, so
 # aggregations can be computed by group:
