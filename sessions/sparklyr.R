@@ -68,10 +68,26 @@ flights %>% sdf_nrow()
 
 flights %>% colnames()
 
-# Print the first 10 rows of data, for as many columns
-# as fit on the screen (this is the default behavior):
+# Print five rows of data, for as many columns as fit on
+# the screen:
+
+flights %>% head(5)
+
+# Print 10 rows (the default number is 10):
 
 flights
+
+# Use `as.data.frame()` to return an in-memory R data
+# frame. In CML, this displays in a scrollable grid.
+# For example, return five rows as an in-memory R data
+# frame, then display it:
+
+flights_df <- flights %>% head(5) %>% as.data.frame()
+flights_df
+
+# Caution: When working with a large Spark DataFrame,
+# limit the number of rows before returning an in-memory
+# R data frame
 
 
 # ## Transforming Data Using dplyr Verbs
