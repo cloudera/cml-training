@@ -167,7 +167,7 @@ flights \
        count('*').alias('num_departures'), \
        mean('dep_delay').alias('avg_dep_delay') \
   ) \
-  .toPandas()
+  .show()
 
 # By chaining together multiple DataFrame methods, you
 # can analyze data to answer questions. For example:
@@ -183,7 +183,7 @@ flights \
        mean('dep_delay').alias('avg_dep_delay') \
   ) \
   .orderBy('avg_dep_delay') \
-  .toPandas()
+  .show()
 
 
 # ## Using SQL Queries
@@ -205,7 +205,7 @@ spark.sql("""
   FROM flights
   WHERE dest = 'SFO'
   GROUP BY origin
-  ORDER BY avg_dep_delay""").toPandas()
+  ORDER BY avg_dep_delay""").show()
 
 
 # ## Cleanup
