@@ -194,7 +194,7 @@ flights \
 # First you must create a temporary view with the
 # DataFrame you want to query:
 
-flights.createOrReplaceTempView('flights')
+flights.createOrReplaceTempView('nyc_flights_2013')
 
 # Then you can use SQL to query the DataFrame:
 
@@ -202,7 +202,7 @@ spark.sql("""
   SELECT origin,
     COUNT(*) AS num_departures,
     AVG(dep_delay) AS avg_dep_delay
-  FROM flights
+  FROM nyc_flights_2013
   WHERE dest = 'SFO'
   GROUP BY origin
   ORDER BY avg_dep_delay""").show()

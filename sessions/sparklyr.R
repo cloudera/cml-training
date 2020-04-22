@@ -41,7 +41,7 @@ spark <- spark_connect(app_name = "cml-training-sparklyr")
 
 flights <- spark_read_csv(
   sc = spark,
-  name = "flights",
+  name = "nyc_flights_2013",
   path = "data/flights.csv",
   header = TRUE,
   infer_schema = TRUE
@@ -211,7 +211,7 @@ tbl(spark, sql("
   SELECT origin,
     COUNT(*) AS num_departures,
     AVG(dep_delay) AS avg_dep_delay
-  FROM flights
+  FROM nyc_flights_2013
   WHERE dest = 'SFO'
   GROUP BY origin
   ORDER BY avg_dep_delay"))
