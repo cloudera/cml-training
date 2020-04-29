@@ -186,22 +186,6 @@ flights %>%
   arrange(avg_dep_delay)
 
 
-# ## Spark DataFrames Functions
-
-# In addition to the dplyr verbs, there are also some
-# other data manipulation functions you can use with
-# sparklyr. For example:
-
-# `na.omit()` filters out rows with missing values:
-
-flights %>% na.omit()
-
-# `sdf_sample()` returns a random sample of rows:
-
-flights %>%
-  sdf_sample(fraction = 0.05, replacement = FALSE)
-
-
 # ## Using SQL Queries
 
 # Instead of using dplyr verbs, you can use a SQL query
