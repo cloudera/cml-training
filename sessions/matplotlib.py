@@ -18,8 +18,8 @@
 
 # Many plotting libraries including Matplotlib can work
 # with data in pandas DataFrames. Often, the first step
-  # to visualize data with Python is to get the data into
-  # a pandas DataFrame.
+# to visualize data with Python is to get the data into
+# a pandas DataFrame.
 
 # This example reads the flights data from a CSV file
 # into a pandas DataFrame:

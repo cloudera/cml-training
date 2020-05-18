@@ -35,7 +35,7 @@ flights_df <- read_csv("data/flights.csv")
 # * Sample or aggregate if the data is large
 
 # This example uses dplyr and base R functions to
-# perform those steps:
+# perform some of those steps:
 
 library(dplyr)
 
