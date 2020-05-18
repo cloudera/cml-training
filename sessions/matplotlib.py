@@ -18,8 +18,8 @@
 
 # Many plotting libraries including Matplotlib can work
 # with data in pandas DataFrames. Often, the first step
-# to visualize data with Python is to get the data into
-# a pandas DataFrame.
+  # to visualize data with Python is to get the data into
+  # a pandas DataFrame.
 
 # This example reads the flights data from a CSV file
 # into a pandas DataFrame:
@@ -33,10 +33,10 @@ flights_pd = pd.read_csv('data/flights.csv')
 # useful to:
 # * Drop unneeded columns
 # * Drop missing values
-# * Sample the data if it is very large
+# * Sample or aggregate if the data is large
 
 # This example uses pandas DataFrame methods to perform
-# those steps:
+# some of those steps:
 
 delays_sample_pd = flights_pd \
   .filter(['dep_delay', 'arr_delay']) \

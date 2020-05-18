@@ -32,7 +32,7 @@ flights_df <- read_csv("data/flights.csv")
 # useful to:
 # * Drop unneeded columns
 # * Drop missing values
-# * Sample the data if it is very large
+# * Sample or aggregate if the data is large
 
 # This example uses dplyr and base R functions to
 # perform those steps:
