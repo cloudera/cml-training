@@ -100,7 +100,7 @@ plt.scatter(test_x, test_y); plt.plot(test_x, test_pred, c='k')
 # model
 model.coef_[0]
 
-# Print the intercept  of the linear regression model
+# Print the intercept of the linear regression model
 model.intercept_
 
 
@@ -126,7 +126,7 @@ print(predictions)
 dump(model, 'models/model.joblib') 
 
 # Later, you can use joblib's `load` function to load the
-# saved model in a new session
+# saved model in a new Python session
 #```python
 #model = load('models/model.joblib')
 #```
