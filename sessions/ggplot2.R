@@ -65,7 +65,7 @@ library(ggplot2)
 # For example, create a scatterplot to visualize the
 # relationship between departure delay and arrival delay:
 
-ggplot(delays_sample_df, aes(x=dep_delay, y=arr_delay)) +
+ggplot(delays_sample_df, aes(x = dep_delay, y = arr_delay)) +
   geom_point()
 
 # The scatterplot seems to show a positive linear
