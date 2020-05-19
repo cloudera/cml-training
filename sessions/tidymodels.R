@@ -105,15 +105,15 @@ test_results <- bind_cols(
 test_results %>% 
   metrics(truth = arr_delay, estimate = .pred) 
 
+
+# ## Interpret Model
+
 # Display a scatterplot of the actual feature values (x)
 # and target (y) values in the test set, with the 
 # regression line overlaid
 ggplot(flights_test, aes(x = dep_delay, y = arr_delay)) +
   geom_point(color = "steelblue") +
   geom_line(data = test_results, aes(x = dep_delay, y = .pred))
-
-
-# ## Interpret Model
 
 # Print the coefficient (slope) and intercept of the
 # linear regression model

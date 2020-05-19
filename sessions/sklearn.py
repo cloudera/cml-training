@@ -88,13 +88,13 @@ model.score(test_x, test_y)
 # make predictions on the test set
 test_pred = model.predict(test_x)
 
+
+# ## Interpret Model
+
 # Display a scatterplot of the actual feature values (x)
 # and target (y) values in the test set, with the 
 # regression line overlaid
 plt.scatter(test_x, test_y); plt.plot(test_x, test_pred, c='k')
-
-
-# ## Interpret Model
 
 # Print the coefficient (slope) of the linear regression
 # model
