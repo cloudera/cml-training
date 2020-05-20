@@ -19,7 +19,8 @@
 # [`LinearRegression`](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
 # class in the 
 # [`sklearn.linear_model`](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.linear_model)
-# module.
+# module. The goal is to predict the arrival delay of
+# flights based on the departure delay.
 
 # The code in this file must be run in a Python 3 session
 # and requires the scikit-learn library. If this code 

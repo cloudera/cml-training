@@ -19,7 +19,8 @@
 # [parsnip](https://parsnip.tidymodels.org)
 # package, with help from two other packages in the
 # [tidymodels](https://www.tidymodels.org) collection
-# of packages.
+# of packages. The goal is to predict the arrival
+# delay of flights based on the departure delay.
 
 # The code in this file requires the packages readr,
 # rsample, parsnip, and yardstick. If this code fails to
