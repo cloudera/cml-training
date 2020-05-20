@@ -50,9 +50,9 @@ flights_clean_df <- flights_df %>%
   na.omit() %>% 
   filter(dep_delay < 400)
 
-# Split the data into an 80% training set and a 20%
-# evaluation (test) set, using the `initial_split()`
-# function in the
+# Split the data into an 80% training sample and
+# a 20% evaluation (test) sample, using the
+# `initial_split()` function in the
 # [rsample](https://rsample.tidymodels.org)
 # package
 flights_split <- initial_split(
@@ -81,18 +81,17 @@ model <- linear_reg() %>%
 # ## Evaluate Model
 
 # To evaluate the model, first you use the model to 
-# generate predictions for the test (evaulation) set
+# generate predictions for the test sample
 
 # To generate predictions from the trained model, call
-# parsnip's `predict()` function, passing the trained model
-# object as the first argument, and the data to predict
-# on as the `new_data` argument
+# parsnip's `predict()` function, passing the trained
+# model object as the first argument, and the data to
+# predict on as the `new_data` argument
 test_pred <- predict(model, new_data = flights_test)
 
 # Then combine the column of predictions with the
-# columns of actual feature values (x) and target
-# values (y), so these columns are together in one
-# data frame
+# columns of actual values in the test sample, so
+# these columns are together in one data frame
 test_results <- bind_cols(
   test_pred,
   flights_test %>% select(dep_delay, arr_delay)
@@ -110,7 +109,7 @@ test_results %>%
 # ## Interpret Model
 
 # Display a scatterplot of the actual feature values (x)
-# and target (y) values in the test set, with the 
+# and target (y) values in the test sample, with the 
 # regression line overlaid
 ggplot(flights_test, aes(x = dep_delay, y = arr_delay)) +
   geom_point(color = "steelblue") +
@@ -124,7 +123,7 @@ model$fit$coefficients
 # ## Make Predictions
 
 # See what predictions the trained model generates for
-# five new records (feature only)
+# five new records (feature values only)
 new_data <- tibble(
   dep_delay = c(-6.0, 2.0, 11.0, 54.0, 140.0)
 )

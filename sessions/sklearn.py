@@ -56,7 +56,7 @@ features = flights_clean_pd.filter(['dep_delay'])
 targets = flights_clean_pd.filter(['arr_delay'])
 
 # Split the features and targets each into an 80% 
-# training set and a 20% test set, using 
+# training sample and a 20% test sample, using 
 # scikit-learn's 
 # [`train_test_split`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
 # function
@@ -79,36 +79,36 @@ model.fit(train_x, train_y)
 
 # ## Evaluate Model
 
-# Call the `score` method to compute the coefficient of
-# of determination (R-squared) on the test set. This is 
-# the proportion of the variation in the target that
-# can be explained by the model
+# Call the `score` method to compute the coefficient
+# of determination (R-squared) on the test sample.
+# This is the proportion of the variation in the
+# target that can be explained by the model
 model.score(test_x, test_y)
 
 
 # ## Interpret Model
 
 # Call the `predict` method to use the trained model to
-# make predictions on the test set
+# make predictions on the test sample
 test_pred = model.predict(test_x)
 
 # Display a scatterplot of the actual feature values (x)
-# and target (y) values in the test set, with the 
+# and target (y) values in the test sample, with the 
 # regression line overlaid
 plt.scatter(test_x, test_y); plt.plot(test_x, test_pred, c='k')
+
+# Print the intercept of the linear regression model
+model.intercept_
 
 # Print the coefficient (slope) of the linear regression
 # model
 model.coef_[0]
 
-# Print the intercept of the linear regression model
-model.intercept_
-
 
 # ## Make Predictions
 
 # See what predictions the trained model generates for
-# five new records (feature only)
+# five new records (feature values only)
 d = {'dep_delay': [-6.0, 2.0, 11.0, 54.0, 140.0]}
 new_data = pd.DataFrame(data=d)
 
