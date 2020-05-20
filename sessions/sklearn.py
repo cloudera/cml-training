@@ -85,12 +85,12 @@ model.fit(train_x, train_y)
 # can be explained by the model
 model.score(test_x, test_y)
 
+
+# ## Interpret Model
+
 # Call the `predict` method to use the trained model to
 # make predictions on the test set
 test_pred = model.predict(test_x)
-
-
-# ## Interpret Model
 
 # Display a scatterplot of the actual feature values (x)
 # and target (y) values in the test set, with the 
