@@ -63,8 +63,8 @@ model <- linear_reg() %>%
 
 
 # Evaluate the model using the test sample. Track the
-# value of R-squared (rounded to four decimal
-# places) to compare experiment results:
+# value of R-squared (rounded to four digits after the
+# decimal) to compare experiment results:
 test_pred <- predict(model, new_data = flights_test)
 
 test_results <- bind_cols(
@@ -77,9 +77,9 @@ r2 <- test_results %>%
   filter(.metric == "rsq") %>%
   pull(.estimate)
 
-track.metric("R_squared", round(r2, 4))
+cdsw::track.metric("R_squared", round(r2, 4))
 
 
 # Save the model for future use:
 saveRDS(model, "model.rds")
-track.file("model.rds")
+cdsw::track.file("model.rds")

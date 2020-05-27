@@ -56,8 +56,8 @@ model.fit(train_x, train_y)
 
 
 # Evaluate the model using the test sample. Track the
-# value of R-squared (rounded to four decimal
-# places) to compare experiment results:
+# value of R-squared (rounded to four digits after the
+# decimal) to compare experiment results:
 r2 = model.score(test_x, test_y)
 cdsw.track_metric('R_squared', round(r2, 4))
 
