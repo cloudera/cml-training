@@ -124,10 +124,10 @@ print(predictions)
 
 # Use joblib's `dump` function to persist the model for
 # future use
-dump(model, 'models/model.joblib') 
+dump(model, 'model.joblib') 
 
 # Later, you can use joblib's `load` function to load the
 # saved model in a new Python session
 #```python
-#model = load('models/model.joblib')
+#model = load('model.joblib')
 #```

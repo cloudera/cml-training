@@ -140,12 +140,12 @@ predictions
 
 # Use the `saveRDS()` function to persist the model for
 # future use
-saveRDS(model, "models/model.rds")
+saveRDS(model, "model.rds")
 
 # Later, you can use the `readRDS()` function to load
 # the saved model in a new R session
 #```r
-#model <- readRDS("models/model.rds")
+#model <- readRDS("model.rds")
 #```
 
 # Trained R model objects are sometimes very large.
