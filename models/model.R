@@ -27,5 +27,20 @@ pred_arr_delay <- function(args) {
   prediction <- model %>%
     predict(list(dep_delay = dep_delay)) %>%
     pull(.pred)
-  list(pred_arr_delay = prediction)
+  list(pred_arr_delay = round(prediction))
 }
+
+# Example input as an R list:
+#```r
+#list(dep_delay = 43)
+#```
+
+# Example input as JSON:
+#```
+#{"dep_delay": 43}
+#```
+
+# Example output as JSON:
+#```
+#{"pred_arr_delay": 38}
+#```

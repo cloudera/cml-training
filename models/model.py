@@ -24,5 +24,15 @@ model = load('model.joblib')
 # predictions from the model:
 def pred_arr_delay(args):
   dep_delay = args["dep_delay"]
-  pred_arr_delay = model.predict([[dep_delay]]).item()
-  return {"pred_arr_delay": pred_arr_delay}
+  prediction = model.predict([[dep_delay]]).item()
+  return {"pred_arr_delay": round(prediction)}
+
+# Example input:
+#```
+#{"dep_delay": 43}
+#```
+
+# Example output:
+#```
+#{"pred_arr_delay": 38}
+#```
