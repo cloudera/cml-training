@@ -16,6 +16,7 @@
 
 # Load required packages:
 library(dplyr)
+library(parsnip)
 
 # Load the trained model:
 model <- readRDS("model.rds")
