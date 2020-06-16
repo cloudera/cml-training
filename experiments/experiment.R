@@ -18,10 +18,10 @@
 # one argument: the string `true` or `false`:
 arguments <- commandArgs(trailingOnly = TRUE)
 if (length(arguments) > 0 && 
-    tolower(arguments[1]) == "true") {
-  fit_intercept <- TRUE
-} else {
+    tolower(arguments[1]) == "false") {
   fit_intercept <- FALSE
+} else {
+  fit_intercept <- TRUE
 }
 
 
