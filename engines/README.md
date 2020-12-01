@@ -3,12 +3,12 @@ This directory contains an example Dockerfile for building a customized engine i
 
 To begin, download the Dockerfile, open a terminal window, and change into the directory containing the Dockerfile. To build and tag the image, run the command
 ```shell
-docker build -t user/repo:x . -f Dockerfile
+docker build -t user/repo:tag . -f Dockerfile
 ```
-where `user` is your Docker Hub username, `repo` is the name of a Docker Hub repository, and `x` is a tag. After the image finishes building, run
+where `user` is a Docker Hub username or organization name, `repo` is the name of a Docker Hub repository owned by that user or organization, and `tag` is a number or string uniquely identifying the image in the repository. After the image finishes building, run
 ```shell
-docker push user/repo:x
+docker push user/repo:tag
 ```
-to push the image to Docker Hub. If you are using an image registry other than Docker Hub, you must qualify the repository name with a hostname in both commands. 
+to push the image to Docker Hub. If you are using an image registry other than Docker Hub, you must qualify `user` with a repository path in both commands. 
 
 For more information, see the [Engines section of the CML documentation](https://docs.cloudera.com/machine-learning/cloud/engines/index.html).
